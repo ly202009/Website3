@@ -2,33 +2,56 @@
 
 <head>
     <style>
-        body {
-            background-image: url('Backgroundimage.jpg');
-            background-repeat: no-repeat;
-            background-position-y: center;
-            background-position-x: center;
-        }
-        .paragraph {
-            font-size: 15px;
-            border: solid black;
-            background-color: yellow;
-            color: black;
-            float: left;
-            width: 600px;
-            font-family: "Comic Sans MS", "Comic Sans", cursive;
-            height: 30;
-            text-align: start
+        .equation{
+            border:3px solid black;
+            width: 180px;
+            height: 120px;
+            float:left;
+            font-size: 100px;
+            text-align: center;
+            font-family: monospace;
         }
     </style>
 
 </head>
 
 <body>
+    <script>
+        const body = document.body
+
+        let div1 = adddiv()
+        div1.setAttribute('class','equation')
+        div1.innerText='8'
+
+
+        let div2 = adddiv()
+        div2.setAttribute('class','equation')
+        div2.innerText='x'
+
+
+        let div3 = adddiv()
+        div3.setAttribute('class','equation')
+        div3.innerText='40'
+
+
+        let div4 = adddiv()
+        div4.setAttribute('class','equation')
+        div4.innerText='='
+
+
+        let div5 = adddiv()
+        div5.setAttribute('class','equation')
+        div5.innerText='320'
+
+        function adddiv() {
+            let div = document.createElement('div')
+            body.appendChild(div)
+            return div
+        }
+    </script>
+
 
 
 </body>
-<footer>
-
-</footer>
 
 </html>
