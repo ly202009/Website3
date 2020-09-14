@@ -19,19 +19,24 @@
     <script>
         const body = document.body
 
+        var factor1 = 18, factor2 = 40
+        var calculationsigns= {'multiplication':'x', 'division': '/', 'addition': '+', 'subtraction':'-'}
+
+        var thiscalsign = calculationsigns.division
+
         let div1 = adddiv()
         div1.setAttribute('class','equation')
-        div1.innerText='8'
+        div1.innerText=factor1
 
 
         let div2 = adddiv()
         div2.setAttribute('class','equation')
-        div2.innerText='x'
+        div2.innerText=thiscalsign
 
 
         let div3 = adddiv()
         div3.setAttribute('class','equation')
-        div3.innerText='40'
+        div3.innerText=factor2
 
 
         let div4 = adddiv()
@@ -40,14 +45,32 @@
 
 
         let div5 = adddiv()
+        // the dumb way is to have a lot of if else-if conditions....
         div5.setAttribute('class','equation')
-        div5.innerText='320'
+        if (thiscalsign === '*'){
+            div5.innerText= factor1 * factor2
+        } else if (thiscalsign === '/') {
+            div5.innerText= factor1 / factor2
+        } else if (thiscalsign === '+') {
+            div5.innerText= factor1 + factor2
+        } else if (thiscalsign === '-'){
+            div5.innerText= factor1 - factor2
+        } else {
+            div5.innerText= 'wrong option'
+        }
+
+        // alternatively, to create an expression using strings 
+        div5.innerText = eval(factor1 + thiscalsign + factor2)
+        
 
         function adddiv() {
             let div = document.createElement('div')
             body.appendChild(div)
             return div
         }
+
+        
+
     </script>
 
 
