@@ -27,17 +27,22 @@
         let div1 = adddiv()
         div1.setAttribute('class','equation')
         div1.innerText=factor1
-
+        div1.setAttribute('contentEditable', true)
+        div1.addEventListener('input', dosomething)
+    
 
         let div2 = adddiv()
         div2.setAttribute('class','equation')
         div2.innerText=thiscalsign
+        div2.setAttribute('contentEditable', true)
+        div2.addEventListener('input', dosomething)
 
 
         let div3 = adddiv()
         div3.setAttribute('class','equation')
         div3.innerText=factor2
-
+        div3.setAttribute('contentEditable', true)
+        div3.addEventListener('input', dosomething)
 
         let div4 = adddiv()
         div4.setAttribute('class','equation')
@@ -69,11 +74,15 @@
             return div
         }
 
+        function dosomething() {
+            // alert('inputting') 
+            factor1 = parseInt(div1.innerText)
+            thiscalsign = div2.innerText
+            factor2 = parseInt(div3.innerText)
+            div5.innerText = eval(factor1 + thiscalsign + factor2)
+        }
         
-
     </script>
-
-
 
 </body>
 
