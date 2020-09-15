@@ -1,0 +1,105 @@
+<html>
+
+<head>
+    <style>
+        .equation{
+            border:3px solid black;
+            width: 180px;
+            height: 120px;
+            float:left;
+            font-size: 100px;
+            text-align: center;
+            font-family: monospace;
+        }
+    </style>
+
+</head>
+
+<body>
+    <script>
+
+
+
+
+        
+
+        const body = document.body
+
+        var factor1 = 18, factor2 = 40
+        var calculationsigns= {'multiplication':'x', 'division': '/', 'addition': '+', 'subtraction':'-'}
+
+        var thiscalsign = calculationsigns.division
+
+        let div1 = adddiv()
+        div1.setAttribute('class','equation')
+        div1.innerText=factor1
+        div1.setAttribute('contentEditable', true)
+        div1.addEventListener('input', dosomething)
+    
+
+        let div2 = adddiv()
+        div2.setAttribute('class','equation')
+        div2.innerText=thiscalsign
+        div2.setAttribute('contentEditable', true)
+        div2.addEventListener('input', dosomething)
+
+
+        let div3 = adddiv()
+        div3.setAttribute('class','equation')
+        div3.innerText=factor2
+        div3.setAttribute('contentEditable', true)
+        div3.addEventListener('input', dosomething)
+
+        let div4 = adddiv()
+        div4.setAttribute('class','equation')
+        div4.innerText='='
+
+
+        let div5 = adddiv()
+        // the dumb way is to have a lot of if else-if conditions....
+        div5.setAttribute('class','equation')
+        if (thiscalsign === '*'){
+            div5.innerText= factor1 * factor2
+        } else if (thiscalsign === '/') {
+            div5.innerText= factor1 / factor2
+        } else if (thiscalsign === '+') {
+            div5.innerText= factor1 + factor2
+        } else if (thiscalsign === '-'){
+            div5.innerText= factor1 - factor2
+        } else {
+            div5.innerText= 'wrong option'
+        }
+
+        // alternatively, to create an expression using strings 
+        div5.innerText = eval(factor1 + thiscalsign + factor2)
+        
+        var div6 =adddiv()
+        div6.setAttribute('name','div6')
+        div6.innerText='0.45'
+        div6.style.fontSize='0px'
+
+
+
+        function adddiv() {
+            let div = document.createElement('div')
+            body.appendChild(div)
+            return div
+        }
+
+        function dosomething() {
+            // alert('inputting') 
+            factor1 = parseFloat(div1.innerText)
+            thiscalsign = div2.innerText
+            factor2 = parseFloat(div3.innerText)
+            div5.innerText = eval(factor1 + thiscalsign + factor2)
+        }
+        function QuestionGenerator() {
+            var package = ['pkg1','pkg2','pkg3','pkg4','pkg5'],
+            packageused = package[Math.floor(Math.random() * values.length)];
+            alert(packageused)
+        }
+        
+    </script>
+</body>
+
+</html>

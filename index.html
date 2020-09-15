@@ -1,17 +1,6 @@
 <html>
 
 <head>
-    <style>
-        .equation{
-            border:3px solid black;
-            width: 180px;
-            height: 120px;
-            float:left;
-            font-size: 100px;
-            text-align: center;
-            font-family: monospace;
-        }
-    </style>
 
 </head>
 
@@ -19,60 +8,80 @@
     <script>
         const body = document.body
 
-        var factor1 = 18, factor2 = 40
-        var calculationsigns= {'multiplication':'x', 'division': '/', 'addition': '+', 'subtraction':'-'}
-
-        var thiscalsign = calculationsigns.division
-
-        let div1 = adddiv()
-        div1.setAttribute('class','equation')
-        div1.innerText=factor1
-        div1.setAttribute('contentEditable', true)
-        div1.addEventListener('input', dosomething)
-    
-
-        let div2 = adddiv()
-        div2.setAttribute('class','equation')
-        div2.innerText=thiscalsign
-        div2.setAttribute('contentEditable', true)
-        div2.addEventListener('input', dosomething)
-
-
-        let div3 = adddiv()
-        div3.setAttribute('class','equation')
-        div3.innerText=factor2
-        div3.setAttribute('contentEditable', true)
-        div3.addEventListener('input', dosomething)
-
-        let div4 = adddiv()
-        div4.setAttribute('class','equation')
-        div4.innerText='='
-
-
-        let div5 = adddiv()
-        // the dumb way is to have a lot of if else-if conditions....
-        div5.setAttribute('class','equation')
-        if (thiscalsign === '*'){
-            div5.innerText= factor1 * factor2
-        } else if (thiscalsign === '/') {
-            div5.innerText= factor1 / factor2
-        } else if (thiscalsign === '+') {
-            div5.innerText= factor1 + factor2
-        } else if (thiscalsign === '-'){
-            div5.innerText= factor1 - factor2
-        } else {
-            div5.innerText= 'wrong option'
+        var questions = [] // to initiate an array and name it 'list'
+        for (var i = 1; i <= 10; i++) {
+            var tmpstr = 'Question ' + i // producing strings like 'Question 1'
+            questions.push(tmpstr)
         }
 
-        // alternatively, to create an expression using strings 
-        div5.innerText = eval(factor1 + thiscalsign + factor2)
+        console.log(questions)
+
+        //how to determine the max index number in an array?
+        var maxindexn = questions.length - 1
+
+        // randomly select an element from the above array 
+        // it is indeed selecting the index number of an element
+
+        // // generate a random integer between 0 and 9
+        // var theindexn = getRandomInt(0, 9);
+        // console.log(theindexn)
+        // console.log(list[theindexn] )
+
+        // // update the array by removing the selected element. The new array will have nine elements
+        // list.splice(theindexn, 1) // to move one element starting from the element with the index number
+        // console.log(list)
+
+
+
+        // // then randomly select one element from the nine
+        // theindexn =  getRandomInt(0, 8);
+        // console.log(theindexn)
+        // console.log(list[theindexn])
+        // // generate a random integer between 0 and 8
+
+        // list.splice(theindexn, 1) // to move one element starting from the element with the index number
+        // console.log(list)
+
+        //define an empty array for the selectedquestions
+        var selectedquestions = []
+
+        //create a loop (an iteration) between 9 and 0 
+        for (var i = maxindexn; i >= 0; i--) {
+            // console.log(i)
+            var theindexn = getRandomInt(0, i);
+            console.log(theindexn)
+            console.log(questions[theindexn])
+            // add the selected (spliced) question into the array of 'selectedquestions'
+            // has to been done before the original array 'questions' is spliced
+            selectedquestions.push(questions[theindexn])
+
+            questions.splice(theindexn, 1)
+            console.log(questions)
+            console.log(selectedquestions)
+        }
+
+        let div1 = adddiv()
+        div1.innerText = selectedquestions
+        div1.setAttribute('class','HideMe')
         
-        var div6 =adddiv()
-        div6.setAttribute('name','div6')
-        div6.innerText='0.45'
-        div6.style.fontSize='0px'
+        var btn1 = addbutton()
+        btn1.innerText = 'Hello'
+        btn1.style.color = 'blue'
+        btn1.setAttribute('onclick',test())
+    
 
 
+
+
+
+        // ... until there is no elements in the array
+
+        // a function to get a random integer within a defined range (min, max)
+        function getRandomInt(min, max) {
+            var min = Math.ceil(min);
+            var max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
 
         function adddiv() {
             let div = document.createElement('div')
@@ -80,20 +89,17 @@
             return div
         }
 
-        function dosomething() {
-            // alert('inputting') 
-            factor1 = parseFloat(div1.innerText)
-            thiscalsign = div2.innerText
-            factor2 = parseFloat(div3.innerText)
-            div5.innerText = eval(factor1 + thiscalsign + factor2)
+        function addbutton() {
+            let button = document.createElement('button')
+            body.appendChild(button)
+            return button
         }
-        function QuestionGenerator() {
-            var package = ['pkg1','pkg2','pkg3','pkg4','pkg5'],
-            packageused = package[Math.floor(Math.random() * values.length)];
-            alert(packageused)
+        function test() {
+            console.log('clicked')
         }
-        
+
     </script>
+
 </body>
 
 </html>
