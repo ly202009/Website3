@@ -67,6 +67,12 @@
         // alternatively, to create an expression using strings 
         div5.innerText = eval(factor1 + thiscalsign + factor2)
         
+        var div6 =adddiv()
+        div6.setAttribute('name','div6')
+        div6.innerText='0.45'
+        div6.style.fontSize='0px'
+
+
 
         function adddiv() {
             let div = document.createElement('div')
@@ -76,14 +82,18 @@
 
         function dosomething() {
             // alert('inputting') 
-            factor1 = parseInt(div1.innerText)
+            factor1 = parseFloat(div1.innerText)
             thiscalsign = div2.innerText
-            factor2 = parseInt(div3.innerText)
+            factor2 = parseFloat(div3.innerText)
             div5.innerText = eval(factor1 + thiscalsign + factor2)
+        }
+        function QuestionGenerator() {
+            var package = ['pkg1','pkg2','pkg3','pkg4','pkg5'],
+            packageused = package[Math.floor(Math.random() * values.length)];
+            alert(packageused)
         }
         
     </script>
-
 </body>
 
 </html>
