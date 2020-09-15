@@ -46,29 +46,28 @@
         var selectedquestions = []
 
         //create a loop (an iteration) between 9 and 0 
-        for (var i = maxindexn; i >= 0; i--) {
-            // console.log(i)
-            var theindexn = getRandomInt(0, i);
-            console.log(theindexn)
-            console.log(questions[theindexn])
-            // add the selected (spliced) question into the array of 'selectedquestions'
-            // has to been done before the original array 'questions' is spliced
-            selectedquestions.push(questions[theindexn])
+                // console.log(i)
+                
+                var theindexn = getRandomInt(0, i);
+                console.log(theindexn)
+                console.log(questions[theindexn])
+                // add the selected (spliced) question into the array of 'selectedquestions'
+                // has to been done before the original array 'questions' is spliced
+                selectedquestions.push(questions[theindexn])
 
-            questions.splice(theindexn, 1)
-            console.log(questions)
-            console.log(selectedquestions)
-        }
+                questions.splice(theindexn, 1)
+                console.log(questions)
+                console.log(selectedquestions)
 
         let div1 = adddiv()
         div1.innerText = selectedquestions
-        div1.setAttribute('class','HideMe')
-        
+        div1.setAttribute('class', 'HideMe')
+
         var btn1 = addbutton()
         btn1.innerText = 'Hello'
         btn1.style.color = 'blue'
-        btn1.setAttribute('onclick',test())
-    
+        btn1.onclick = test; //why i don't have to say test() with brackets
+
 
 
 
@@ -80,7 +79,9 @@
         function getRandomInt(min, max) {
             var min = Math.ceil(min);
             var max = Math.floor(max);
+            console.log(Math.floor(Math.random() * (max - min + 1)) + min)
             return Math.floor(Math.random() * (max - min + 1)) + min;
+            splicer()
         }
 
         function adddiv() {
@@ -95,7 +96,8 @@
             return button
         }
         function test() {
-            console.log('clicked')
+            console.log('clicked brr')
+            getRandomInt(0, 9)
         }
 
     </script>
