@@ -1,8 +1,18 @@
 /**Randomly extract one element from ten
  * Repeating for ten times, each for a different element
  * */
-var list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] // this is called (within []) a collection, or an array
-// console.log(list)
+console.log('bring it on ! ================================')
+
+var questions =[] // to initiate an array and name it 'list'
+for (var i=1; i<=10; i++) {
+    var tmpstr = 'Question ' + i // producing strings like 'Question 1'
+    questions.push(tmpstr)
+}
+
+console.log(questions)
+
+//how to determine the max index number in an array?
+var maxindexn = questions.length - 1 
 
 // randomly select an element from the above array 
 // it is indeed selecting the index number of an element
@@ -27,16 +37,23 @@ var list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] // this is called (within []) a colle
 // list.splice(theindexn, 1) // to move one element starting from the element with the index number
 // console.log(list)
 
+//define an empty array for the selectedquestions
+var selectedquestions =[]
+
 //create a loop (an iteration) between 9 and 0 
-for (var i = 9; i >= 0; i--) {
+for (var i = maxindexn; i >= 0; i--) {
     // console.log(i)
     var theindexn = getRandomInt(0, i);
     console.log(theindexn)
-    console.log(list[theindexn])
-    list.splice(theindexn, 1)
-    console.log(list)
-}
+    console.log(questions[theindexn])
+    // add the selected (spliced) question into the array of 'selectedquestions'
+    // has to been done before the original array 'questions' is spliced
+    selectedquestions.push(questions[theindexn])
 
+    questions.splice(theindexn, 1)
+    console.log(questions)
+    console.log(selectedquestions)
+}
 
 
 // ... until there is no elements in the array
