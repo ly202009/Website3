@@ -19,20 +19,20 @@
         var selectedquestions = []
 
         //create a loop (an iteration) between 9 and 0 
-                // console.log(i)
-                
-                var i = 9
-                var theindexn = getRandomInt(0, i);
-                console.log(theindexn)
-                console.log(questions[theindexn])
-                // add the selected (spliced) question into the array of 'selectedquestions'
-                // has to been done before the original array 'questions' is spliced
-                function selectedQ() {
-                selectedquestions.push(questions[theindexn])
-                }
-                questions.splice(theindexn, 1)
-                console.log(questions)
-                console.log(selectedquestions)
+        // console.log(i)
+        function selectQ() {
+            if (i >= 0);(i--)
+            var theindexn = getRandomInt(0, i);
+            console.log(theindexn)
+            console.log(questions[theindexn])
+        
+        // add the selected (spliced) question into the array of 'selectedquestions'
+        // has to been done before the original array 'questions' is spliced
+            selectedquestions.push(questions[theindexn])
+        questions.splice(theindexn, 1)
+        console.log(questions)
+        console.log(selectedquestions)
+        }
 
         let div1 = adddiv()
         div1.innerText = selectedquestions
@@ -42,7 +42,6 @@
         btn1.innerText = 'Hello'
         btn1.style.color = 'blue'
         btn1.onclick = test; //why i don't have to say test() with brackets
-        btn1.onclick.i=i--
 
 
 
@@ -57,6 +56,7 @@
             var max = Math.floor(max);
             console.log(Math.floor(Math.random() * (max - min + 1)) + min)
             return Math.floor(Math.random() * (max - min + 1)) + min;
+            selectQcount()
             selectedQ()
             Addquestion()
         }
