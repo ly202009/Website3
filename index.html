@@ -7,58 +7,76 @@
 <body>
     <script>
         const body = document.body
+        /**Randomly extract one element from ten
+* Repeating for ten times, each for a different element
+* */
+        console.log('bring it on ! ================================')
 
-        var questions = [] // to initiate an array and name it 'list'
-        function Addquestion() {
+        var unselectedQs = [] // to initiate an array and name it 'list'
+        for (var i = 1; i <= 10; i++) {
             var tmpstr = 'Question ' + i // producing strings like 'Question 1'
-            questions.push(tmpstr)
+            unselectedQs.push(tmpstr)
         }
 
-        console.log(questions)
 
-        var selectedquestions = []
 
-        //create a loop (an iteration) between 9 and 0 
-        // console.log(i)
-        function selectQ() {
-            if (i >= 0);(i--)
-            var theindexn = getRandomInt(0, i);
-            console.log(theindexn)
-            console.log(questions[theindexn])
-        
-        // add the selected (spliced) question into the array of 'selectedquestions'
-        // has to been done before the original array 'questions' is spliced
-            selectedquestions.push(questions[theindexn])
-        questions.splice(theindexn, 1)
-        console.log(questions)
-        console.log(selectedquestions)
-        }
-
-        let div1 = adddiv()
-        div1.innerText = selectedquestions
-        div1.setAttribute('class', 'HideMe')
 
         var btn1 = addbutton()
         btn1.innerText = 'Hello'
         btn1.style.color = 'blue'
-        btn1.onclick = test; //why i don't have to say test() with brackets
+        btn1.onclick = DisplayQ
 
+        // add div1 here
+            let div1 = adddiv()
+            
 
+        var selectedquestions = []
+        
+        //create a loop (an iteration) between 9 and 0 
+        function DisplayQ() {
+            console.log('this is before updating the unselectedQs ================')
+            console.log(unselectedQs)
+            
 
+            var maxindexn = unselectedQs.length - 1
+            
+            // 1. randomly select a question from unselectedQs
+            // 1a. randomly decide an index number 
+            var theindexn = getRandomInt(0, maxindexn);
+            // 1b. convert the selected index number into the question number
+            var thequestion = unselectedQs[theindexn]
+            // 2. display the selected question inside of div1
+            div1.innerText=thequestion
+            // 3. make the contents in div1 visible
+            // 4. add the selected question to the selectedQs
+            selectedquestions.push(unselectedQs[theindexn])
+            
+            console.log('this is after updating the selectedquestions ================')
+            console.log(selectedquestions)
 
+            // 5. remove the selected question from the unselectedQs
+            unselectedQs.splice(theindexn, 1)
 
-
-        // ... until there is no elements in the array
+            console.log('this is after updating the unselectedQs ================')
+            console.log(unselectedQs)
+            // 6. if the unselectedQs is empty, then change the button text and display that all questions have been displayed.
+            if (unselectedQs.length===0){
+                btn1.innerText="You're done!"
+                btn1.onclick=null
+            }
+        } // DisplayQ ()
 
         // a function to get a random integer within a defined range (min, max)
         function getRandomInt(min, max) {
             var min = Math.ceil(min);
             var max = Math.floor(max);
-            console.log(Math.floor(Math.random() * (max - min + 1)) + min)
             return Math.floor(Math.random() * (max - min + 1)) + min;
-            selectQcount()
-            selectedQ()
-            Addquestion()
+        }
+
+        function addbutton() {
+            let button = document.createElement('button')
+            body.appendChild(button)
+            return button
         }
 
         function adddiv() {
@@ -67,18 +85,7 @@
             return div
         }
 
-        function addbutton() {
-            let button = document.createElement('button')
-            body.appendChild(button)
-            return button
-        }
-        function test() {
-            console.log('clicked brr')
-            getRandomInt(0, 9)
-        }
-
     </script>
-
 </body>
 
 </html>

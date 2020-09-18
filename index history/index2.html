@@ -1,0 +1,129 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <script>
+        const body = document.body
+        /**Randomly extract one element from ten
+* Repeating for ten times, each for a different element
+* */
+        console.log('bring it on ! ================================')
+
+        var unselectedQs = [] // to initiate an array and name it 'list'
+        for (var i = 1; i <= 10; i++) {
+            var tmpstr = 'Question ' + i // producing strings like 'Question 1'
+            unselectedQs.push(tmpstr)
+        }
+
+        console.log(unselectedQs)
+
+        //how to determine the max index number in an array?
+        
+
+        // randomly select an element from the above array 
+        // it is indeed selecting the index number of an element
+
+        // // generate a random integer between 0 and 9
+        // var theindexn = getRandomInt(0, 9);
+        // console.log(theindexn)
+        // console.log(list[theindexn] )
+
+        // // update the array by removing the selected element. The new array will have nine elements
+        // list.splice(theindexn, 1) // to move one element starting from the element with the index number
+        // console.log(list)
+
+
+
+        // // then randomly select one element from the nine
+        // theindexn =  getRandomInt(0, 8);
+        // console.log(theindexn)
+        // console.log(list[theindexn])
+        // // generate a random integer between 0 and 8
+
+        // list.splice(theindexn, 1) // to move one element starting from the element with the index number
+        // console.log(list)
+
+        //define an empty array for the selectedquestions
+
+
+
+        var btn1 = addbutton()
+        btn1.innerText = 'Hello'
+        btn1.style.color = 'blue'
+        btn1.onclick = Geti
+
+        // add div1 here
+            let div1 = adddiv()
+            
+
+        var selectedquestions = []
+        
+        //create a loop (an iteration) between 9 and 0 
+        function Geti() {
+
+            var maxindexn = unselectedQs.length - 1
+            
+            // 1. randomly select a question from unselectedQs
+            // 1a. randomly decide an index number 
+            var theindexn = getRandomInt(0, maxindexn);
+            // 1b. convert the selected index number into the question number
+            var thequestion = unselectedQs[theindexn]
+            
+
+
+            // 2. display the selected question inside of div1
+            div1.innerText=thequestion
+
+
+            // 3. make the contents in div1 visible
+            // 4. remove the selected question from the unselectedQs
+            // 5. add the selected question to the selectedQs
+            // 6. each time the button is clicked, repeat the previous steps
+
+        //     if (i >= 0) {
+        //         (i--)
+        //     } else {
+
+        //     }
+        //     // console.log(i)
+
+        //     console.log(theindexn)
+        //     console.log(questions[theindexn])
+        //     // add the selected (spliced) question into the array of 'selectedquestions'
+        //     // has to been done before the original array 'questions' is spliced
+        //     selectedquestions.push(questions[theindexn])
+
+        //     questions.splice(theindexn, 1)
+        //     console.log(questions)
+        //     console.log(selectedquestions)
+        // }
+
+
+        // // ... until there is no elements in the array
+
+        // // a function to get a random integer within a defined range (min, max)
+        // function getRandomInt(min, max) {
+        //     var min = Math.ceil(min);
+        //     var max = Math.floor(max);
+        //     return Math.floor(Math.random() * (max - min + 1)) + min;
+        // }
+
+        function addbutton() {
+            let button = document.createElement('button')
+            body.appendChild(button)
+            return button
+        }
+
+        function adddiv() {
+            let div = document.createElement('div')
+            body.appendChild(div)
+            return div
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <script>
+        const body = document.body
+
+
+
+        console.log('bring it on ! ================================')
+
+        var questions = [] // to initiate an array and name it 'list'
+        for (var i = 1; i <= 10; i++) {
+            var tmpstr = 'Question ' + i // producing strings like 'Question 1'
+            questions.push(tmpstr)
+        }
+
+        console.log(questions)
+
+        var maxindexn = questions.length - 1 
+
+
+        var i = 10;
+
+        let div1 = adddiv()
+        div1.innerText = selectedquestions
+        div1.setAttribute('class', 'HideMe')
+
+        var btn1 = addbutton()
+        btn1.innerText = 'Hello'
+        btn1.style.color = 'blue'
+        btn1.onclick = test; //why i don't have to say test() with brackets
+
+        // ... until there is no elements in the array
+
+        // a function to get a random integer within a defined range (min, max)
+        
+
+        function adddiv() {
+            let div = document.createElement('div')
+            body.appendChild(div)
+            return div
+        }
+
+        function addbutton() {
+            let button = document.createElement('button')
+            body.appendChild(button)
+            return button
+        }
+        function test() {
+            selectQ()
+        }
+        //create a loop (an iteration) between 9 and 0 
+
+        var selectedquestions = []
+
+        function selectQ() {
+            if (i >= 0) {
+                (i--)
+            } else {
+
+            }
+            var theindexn = getRandomInt(0, i);
+            console.log(theindexn)
+            // console.log(questions[theindexn])
+            console.log(questions[theindexn])
+            var CurrentQ = ('Question ' + [theindexn + 1])
+            console.log(CurrentQ)
+
+            let QuestionNoBox = adddiv()
+            QuestionNoBox.innerText = CurrentQ
+
+            // add the selected (spliced) question into the array of 'selectedquestions'
+            // has to been done before the original array 'questions' is spliced
+            selectedquestions.push(questions[theindexn])
+            questions.splice(theindexn, 1)
+            console.log(questions)
+            console.log(selectedquestions)
+        }
+
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+    </script>
+
+</body>
+
+</html>
