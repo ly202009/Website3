@@ -39,16 +39,20 @@
             'id': 'divb'
         })
 
+        // console.log(Math.abs(parseInt(div2text)))
         // determine the bkgrd color by the text value in the div
-        var div2bkcolor = 'blue'
-
+        if (parseInt(div2text) >= 0) {
+            var div2bkcolor = 'blue'
+        } else {
+            var div2bkcolor = 'red' 
+        }
         // div1dom.style.width = '200px'
         // div1dom.style.height = '200px'
         // div1dom.style.backgroundColor = 'brown'
         div2jqobj.css({
-            'width': div2text,
+            'width': Math.abs(parseInt(div2text)),
             'height': '300px',
-            'background-color':'blue',
+            'background-color': div2bkcolor,
             'color': 'white',
             'font-size': '30'
         })
