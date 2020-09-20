@@ -27,34 +27,43 @@
         // console.log(div2dom)
 
         // convert a dom into a jquery object
+        var div2text='500'
         var div2jqobj = $(div2dom)
         console.log(div2jqobj)
         // var div2dom = div2jqobjs[1]
         // div2jqobj.attr('class', 'classdiv2')
+        div2jqobj.text(div2text)
         div2jqobj.attr({
             'class': 'classdiv2',
             'name' : 'thediv2',
             'id': 'divb'
         })
+
+        // determine the bkgrd color by the text value in the div
+        var div2bkcolor = 'blue'
+
         // div1dom.style.width = '200px'
         // div1dom.style.height = '200px'
         // div1dom.style.backgroundColor = 'brown'
         div2jqobj.css({
-            'width': '300px',
+            'width': div2text,
             'height': '300px',
-            'background-color':'blue'
+            'background-color':'blue',
+            'color': 'white',
+            'font-size': '30'
         })
 
         div2jqobj.click(clicked) // the jquery method (on a jquery object)
         div1dom.onclick = clicked // plain js method (on a DOM)
 
         function clicked(){
-            console.log('clicked')
             console.log(this)
             var theclickeddom = this
-            console.log(theclickeddom.className)
+            // console.log(theclickeddom.className)
             var theclickedjqobj= $(this)
-            console.log(theclickedjqobj.attr({'class'))
+            console.log(
+                theclickedjqobj.attr('class')
+            )
         }
 
     </script>
