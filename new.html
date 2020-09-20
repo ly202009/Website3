@@ -25,6 +25,8 @@
         // console.log(divsjqobj)
         var div2dom = divsjqobj[1]
         // console.log(div2dom)
+
+        // convert a dom into a jquery object
         var div2jqobj = $(div2dom)
         console.log(div2jqobj)
         // var div2dom = div2jqobjs[1]
@@ -48,6 +50,11 @@
 
         function clicked(){
             console.log('clicked')
+            console.log(this)
+            var theclickeddom = this
+            console.log(theclickeddom.className)
+            var theclickedjqobj= $(this)
+            console.log(theclickedjqobj.attr({'class'))
         }
 
     </script>
