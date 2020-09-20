@@ -17,13 +17,16 @@
         div1dom.style.width = '200px'
         div1dom.style.height = '200px'
         div1dom.style.backgroundColor = 'brown'
+        // console.log(div1dom)
 
         // create div2 using jquery syntax
-        var div2jqobj = $('body').append('<div/>')
-        var div2dom =  div2jqobj[0]
-        console.log(div1dom)
+        $('body').append('<div/>')
+        var div2jqobj = $('body').find('div')
         console.log(div2jqobj)
-        console.log(div2dom)
+        // var div2dom =  div2jqobj[1]
+        
+        
+        // console.log(div2dom)
 
     </script>
 
