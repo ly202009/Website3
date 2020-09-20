@@ -43,7 +43,8 @@
             'background-color':'blue'
         })
 
-        div2jqobj.click()
+        div2jqobj.click(clicked) // the jquery method (on a jquery object)
+        div1dom.onclick = clicked // plain js method (on a DOM)
 
         function clicked(){
             console.log('clicked')
