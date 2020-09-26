@@ -27,9 +27,15 @@ var operators = ['+', '-', '*', '/'];
     console.log('the answer is ', theanswer)
 
 
-    
+    // 5. on click of the submit button, do....
+    $(submitbtn).click(verifytheanswerandmoveon)
 
-
+    function verifytheanswerandmoveon (){
+        // get the user's answer
+        var theuseranswerStr = divs[4].innerText
+        var theuseranswerNum = 
+        console.log(typeof(theuseranswer))
+    }
 
 
 
