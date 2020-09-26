@@ -62,16 +62,6 @@ async function verifytheanswerandmoveon() {
         reportdiv.innerText = reportstr
     }
 
-    async function askAqNVerify() {
-        console.log('==========question ' + qcountsofar  + ' of ' + totalqs + ' =============')
 
-        // clean up the answer div
-        divs[4].innerText =''
-
-        // making a question and prepare the answer 
-        var theanswer = await qcheck();
-        roundedanswerNum = Math.round(theanswer)       
-
-    }
 
 }
