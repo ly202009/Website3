@@ -33,9 +33,9 @@ var operators = ['+', '-', '*', '/'];
     function verifytheanswerandmoveon (){
         // get the user's answer
         var theuseranswerStr = divs[4].innerText
-        var theuseranswerNum = 
-        console.log(typeof(theuseranswer))
-    }
+        var theuseranswerNum = parseFloat(theuseranswerStr)
+        console.log(theuseranswerNum, typeof(theuseranswerNum))
+    }  
 
 
 
