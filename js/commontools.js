@@ -7,7 +7,7 @@
 async function qcheck() {
 
     var firstn = await getRandomInt(0, 9), secondn = await getRandomInt(1, 9);
-    var operatorindex =await getRandomInt(3,3)
+    var operatorindex =await getRandomInt(0,3)
     var operator = operators[operatorindex];
 
 

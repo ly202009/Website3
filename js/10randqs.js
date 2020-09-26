@@ -1,8 +1,8 @@
 const body = document.body;
 var divs = [], tmpdiv = undefined;
 var operators = ['+', '-', '*', '/'];
-var NumberOfCorrectAnswers = 0, qcountsofar = 1, totalqs = 3;
-var roundedanswerNum = undefined;
+var NumberOfCorrectAnswers = 0, qcountsofar = 1, totalqs = 10;
+var roundedanswerNum = undefined, reportdiv = undefined;
 
 (async () => {
 
@@ -24,10 +24,14 @@ var roundedanswerNum = undefined;
     var submitbtn = await addbutton()
     $(submitbtn).text('next').css({ 'font-size': '30px' })
 
-    // 4. on click of the submit button, match user's answer with the correct answer, make statistics on the # of acumulated correct answers
+    // 4. make a report div
+    reportdiv = await adddiv()
+    $(reportdiv).css({'font-family': 'Georgia', 'font-size': '30px'})
+    
+    // 5. on click of the submit button, match user's answer with the correct answer, make statistics on the # of acumulated correct answers
     $(submitbtn).click(verifytheanswerandmoveon)
 
-    //5. ask a question and verify
+    //6. ask a question and verify
     await askAqNVerify()
 
     async function askAqNVerify() {
@@ -65,7 +69,10 @@ var roundedanswerNum = undefined;
             await askAqNVerify()
         } else {
             console.log ('all questions are tested. the number of correct answers is ', NumberOfCorrectAnswers)
-            var correctrate = NumberOfCorrectAnswers / totalqs;
+            var correctrate = Math.floor(NumberOfCorrectAnswers / totalqs*100);
+            var reportstr = 'Out of ' + totalqs + ' questions, you got right for ' + NumberOfCorrectAnswers + ', and the correct percentage is ' + correctrate +'%';
+            console.log(reportstr)
+            reportdiv.innerText = reportstr
         }
 
     }
