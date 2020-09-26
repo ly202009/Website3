@@ -27,58 +27,14 @@ var roundedanswerNum = undefined, reportdiv = undefined;
     // 4. make a report div
     reportdiv = await adddiv()
     $(reportdiv).css({'font-family': 'Georgia', 'font-size': '30px'})
+    $(reportdiv).text('Report to be made after test is done.')
     
     // 5. on click of the submit button, match user's answer with the correct answer, make statistics on the # of acumulated correct answers
     $(submitbtn).click(verifytheanswerandmoveon)
 
     //6. ask a question and verify
     await askAqNVerify()
-
-    async function askAqNVerify() {
-        console.log('question ' + qcountsofar  + ' of ' + totalqs)
-
-        // clean up the answer div
-        divs[4].innerText =''
-
-        // making a question and prepare the answer 
-        var theanswer = await qcheck();
-        roundedanswerNum = Math.round(theanswer)       
-
-    }
-
-    async function verifytheanswerandmoveon() {
-
-        console.log('the answer is ', roundedanswerNum)
-        // get the user's answer
-        var theuseranswerStr = divs[4].innerText
-        var theuseranswerNum = parseFloat(theuseranswerStr)
-        var roundedtheuseranswerNum = Math.round(theuseranswerNum)
-        console.log('the user answer is ', roundedtheuseranswerNum, typeof (roundedtheuseranswerNum))
-
-        if (roundedanswerNum === roundedtheuseranswerNum) {
-            NumberOfCorrectAnswers++;
-            console.log('right')
-            console.log('number of correct answers', NumberOfCorrectAnswers)
-        } else {
-            console.log('wrong')
-        }
-
-        // check the total questions being asked        
-        if (qcountsofar < totalqs){
-            qcountsofar ++;
-            await askAqNVerify()
-        } else {
-            console.log ('all questions are tested. the number of correct answers is ', NumberOfCorrectAnswers)
-            var correctrate = Math.floor(NumberOfCorrectAnswers / totalqs*100);
-            var reportstr = 'Out of ' + totalqs + ' questions, you got right for ' + NumberOfCorrectAnswers + ', and the correct percentage is ' + correctrate +'%';
-            console.log(reportstr)
-            reportdiv.innerText = reportstr
-        }
-
-    }
-
-
-
+    
 
 })()
 
