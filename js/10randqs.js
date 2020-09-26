@@ -25,7 +25,7 @@ var operators = ['+', '-', '*', '/'];
     // 4. an example of making a question and prepare the answer  
     var theanswer  = await qcheck();
     console.log('the answer is ', theanswer)
-
+  
 
     // 5. on click of the submit button, do....
     $(submitbtn).click(verifytheanswerandmoveon)
