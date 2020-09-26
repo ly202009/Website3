@@ -1,7 +1,7 @@
 const body = document.body;
 var divs = [], tmpdiv = undefined;
 var operators = ['+', '-', '*', '/'];
-var NumberOfCorrectAnswers = 0, qcountsofar = 1, totalqs = 4;
+var NumberOfCorrectAnswers = 0, qcountsofar = 1, totalqs = 3;
 var roundedanswerNum = undefined;
 
 (async () => {
@@ -24,9 +24,10 @@ var roundedanswerNum = undefined;
     var submitbtn = await addbutton()
     $(submitbtn).text('next').css({ 'font-size': '30px' })
 
-    // 5. on click of the submit button, match user's answer with the correct answer, make statistics on the # of acumulated correct answers
+    // 4. on click of the submit button, match user's answer with the correct answer, make statistics on the # of acumulated correct answers
     $(submitbtn).click(verifytheanswerandmoveon)
 
+    //5. ask a question and verify
     await askAqNVerify()
 
     async function askAqNVerify() {
@@ -35,12 +36,9 @@ var roundedanswerNum = undefined;
         // clean up the answer div
         divs[4].innerText =''
 
-        // 4. making a question and prepare the answer 
+        // making a question and prepare the answer 
         var theanswer = await qcheck();
-        roundedanswerNum = Math.round(theanswer)
-        
-
-        
+        roundedanswerNum = Math.round(theanswer)       
 
     }
 
@@ -61,13 +59,13 @@ var roundedanswerNum = undefined;
             console.log('wrong')
         }
 
-        // check the total questions being asked
-        
+        // check the total questions being asked        
         if (qcountsofar < totalqs){
             qcountsofar ++;
             await askAqNVerify()
         } else {
             console.log ('all questions are tested. the number of correct answers is ', NumberOfCorrectAnswers)
+            var correctrate = NumberOfCorrectAnswers / totalqs;
         }
 
     }
