@@ -2,10 +2,13 @@ const body = document.body;
 var divs=[], tmpdiv = undefined;
 
 for (var i =0; i < 2; i++) {
-    var div = adddiv()
-    console.log (div)
+    var tmpdiv = adddiv()
+    console.log (tmpdiv)
+    tmpdiv.setAttribute('class', 'equation')
+    divs.push(tmpdiv)
 }
-
+divs[0].textContent='1'
+divs[1].textContent='2'
 
 // (async ()=>{
 
