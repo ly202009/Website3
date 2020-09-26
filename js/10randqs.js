@@ -35,8 +35,7 @@ var operators = ['+', '-', '*', '/'];
         var theuseranswerStr = divs[4].innerText
         var theuseranswerNum = parseFloat(theuseranswerStr)
         console.log(theuseranswerNum, typeof(theuseranswerNum))
-    }   
-
+    } 
 
 
 
