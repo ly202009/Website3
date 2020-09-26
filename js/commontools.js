@@ -4,7 +4,13 @@
     return div
 }
 
-function qcheck(firstn, operator, secondn) {
+async function qcheck() {
+
+    var firstn = await getRandomInt(0, 9), secondn = await getRandomInt(0, 9);
+    var operatorindex =await getRandomInt(0,3)
+    var operator = operators[operatorindex];
+
+
     divs[0].innerText = firstn
     divs[1].innerText = operator
     divs[2].innerText = secondn
@@ -12,6 +18,7 @@ function qcheck(firstn, operator, secondn) {
     // console.log(answer)
     return answer
 }
+
 
 async function getRandomInt(min, max) {
     var min = Math.ceil(min);

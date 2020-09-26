@@ -18,13 +18,12 @@ var operators = ['+', '-', '*', '/'];
     // divs[4].contentEditable= true
     $(divs[4]).attr({ 'contentEditable': true }) // jquery syntax
 
-    // 3. an example of making a question and prepare the answer
-    var firstn = await getRandomInt(0, 9), secondn = await getRandomInt(0, 9);
-    var operatorindex =await getRandomInt(0,3)
-    var operator = operators[operatorindex];
+    // 3. an example of making a question and prepare the answer   
 
-    var theanswer  = qcheck(firstn, operator, secondn);
+    var theanswer  = await qcheck();
     console.log('the answer is ', theanswer)
+
+
 
 
 
