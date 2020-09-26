@@ -62,8 +62,6 @@ async function verifytheanswerandmoveon() {
         console.log(reportstr)
         reportdiv.innerText = reportstr
     }
-
-
 }
 
 
