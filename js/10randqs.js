@@ -18,11 +18,16 @@ var operators = ['+', '-', '*', '/'];
     // divs[4].contentEditable= true
     $(divs[4]).attr({ 'contentEditable': true }) // jquery syntax
 
-    // 3. an example of making a question and prepare the answer   
+    // 3. make a submit button
+    var submitbtn = await addbutton()
+    $(submitbtn).text('next').css({'font-size': '30px'})
 
+    // 4. an example of making a question and prepare the answer  
     var theanswer  = await qcheck();
     console.log('the answer is ', theanswer)
 
+
+    
 
 
 

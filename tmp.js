@@ -97,11 +97,7 @@
         // a function to get a random integer within a defined range (min, max)
         
 
-        function addbutton() {
-            let button = document.createElement('button')
-            body.appendChild(button)
-            return button
-        }
+        
 
 
         function checkanswer() {

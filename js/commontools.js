@@ -25,3 +25,9 @@ async function getRandomInt(min, max) {
     var max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+async function addbutton() {
+    let button = document.createElement('button')
+    body.appendChild(button)
+    return button
+}
