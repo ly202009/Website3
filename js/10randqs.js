@@ -1,7 +1,8 @@
 const body = document.body;
 var divs = [], tmpdiv = undefined;
 var operators = ['+', '-', '*', '/'];
-var NumberOfCorrectAnswers = 0, qcountsofar = 0, totalqs = 10;
+var NumberOfCorrectAnswers = 0, qcountsofar = 1, totalqs = 4;
+var roundedanswerNum = undefined;
 
 (async () => {
 
@@ -23,20 +24,29 @@ var NumberOfCorrectAnswers = 0, qcountsofar = 0, totalqs = 10;
     var submitbtn = await addbutton()
     $(submitbtn).text('next').css({ 'font-size': '30px' })
 
+    // 5. on click of the submit button, match user's answer with the correct answer, make statistics on the # of acumulated correct answers
+    $(submitbtn).click(verifytheanswerandmoveon)
+
     await askAqNVerify()
 
     async function askAqNVerify() {
-        // 4. making a question and prepare the answer  
-        var theanswer = await qcheck();
-        var roundedanswerNum = Math.round(theanswer)
-        console.log('the answer is ', roundedanswerNum)
+        console.log('question ' + qcountsofar  + ' of ' + totalqs)
 
-        // 5. on click of the submit button, match user's answer with the correct answer, make statistics on the # of acumulated correct answers
-        $(submitbtn).click(await verifytheanswerandmoveon)
+        // clean up the answer div
+        divs[4].innerText =''
+
+        // 4. making a question and prepare the answer 
+        var theanswer = await qcheck();
+        roundedanswerNum = Math.round(theanswer)
+        
+
+        
 
     }
 
-    async function verifytheanswerandmoveon(roundedanswerNum) {
+    async function verifytheanswerandmoveon() {
+
+        console.log('the answer is ', roundedanswerNum)
         // get the user's answer
         var theuseranswerStr = divs[4].innerText
         var theuseranswerNum = parseFloat(theuseranswerStr)
@@ -52,10 +62,12 @@ var NumberOfCorrectAnswers = 0, qcountsofar = 0, totalqs = 10;
         }
 
         // check the total questions being asked
-        qcountsofar++;
-
-        if (qcountsofar < totalqs){
+        
+        if (qcountsofar <= totalqs){
+            qcountsofar ++;
             await askAqNVerify()
+        } else {
+            console.log ('all questions are tested. the number of correct answers is ', NumberOfCorrectAnswers)
         }
 
     }
