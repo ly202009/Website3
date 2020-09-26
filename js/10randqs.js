@@ -63,7 +63,7 @@ var roundedanswerNum = undefined;
 
         // check the total questions being asked
         
-        if (qcountsofar <= totalqs){
+        if (qcountsofar < totalqs){
             qcountsofar ++;
             await askAqNVerify()
         } else {
