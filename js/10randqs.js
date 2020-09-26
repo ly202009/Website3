@@ -1,10 +1,10 @@
 const body = document.body;
 var divs=[], tmpdiv = undefined;
 
-// for (var i =0; i < 2; i++) {
+for (var i =0; i < 2; i++) {
     var div = adddiv()
     console.log (div)
-// }
+}
 
 
 // (async ()=>{
