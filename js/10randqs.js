@@ -12,9 +12,13 @@ var divs=[], tmpdiv = undefined;
         divs.push(tmpdiv)
     }
 
-    div[3].innerText = '='
+    divs[3].innerText = '='
+    // divs[4].contentEditable= true
+    $(divs[4]).attr({'contentEditable':true}) // jquery syntax
 
-
+    var firstn = 1, secondn = 2;
+    var operator = '+';
+    divs[0].inn
 
 
 
