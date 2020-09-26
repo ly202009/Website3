@@ -23,20 +23,20 @@ var NumberOfCorrectAnswers = 0, qcountsofar = 0, totalqs = 10;
     var submitbtn = await addbutton()
     $(submitbtn).text('next').css({ 'font-size': '30px' })
 
+    await askAqNVerify()
 
-    function askAq
-    // 4. making a question and prepare the answer  
-    var theanswer = await qcheck();
-    var roundedanswerNum = Math.round(theanswer)
-    console.log('the answer is ', roundedanswerNum)
+    async function askAqNVerify() {
+        // 4. making a question and prepare the answer  
+        var theanswer = await qcheck();
+        var roundedanswerNum = Math.round(theanswer)
+        console.log('the answer is ', roundedanswerNum)
 
-    // 5. on click of the submit button, match user's answer with the correct answer, make statistics on the # of acumulated correct answers
-    $(submitbtn).click(verifytheanswerandmoveon)
+        // 5. on click of the submit button, match user's answer with the correct answer, make statistics on the # of acumulated correct answers
+        $(submitbtn).click(await verifytheanswerandmoveon)
 
+    }
 
-
-
-    function verifytheanswerandmoveon() {
+    async function verifytheanswerandmoveon(roundedanswerNum) {
         // get the user's answer
         var theuseranswerStr = divs[4].innerText
         var theuseranswerNum = parseFloat(theuseranswerStr)
@@ -53,6 +53,10 @@ var NumberOfCorrectAnswers = 0, qcountsofar = 0, totalqs = 10;
 
         // check the total questions being asked
         qcountsofar++;
+
+        if (qcountsofar < totalqs){
+            await askAqNVerify()
+        }
 
     }
 
