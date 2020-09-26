@@ -1,7 +1,7 @@
 const body = document.body;
 var divs = [], tmpdiv = undefined;
 var operators = ['+', '-', '*', '/'];
-var NumberOfCorrectAnswers =0, qcountsofar =0, totalq = 10;
+var NumberOfCorrectAnswers = 0, qcountsofar = 0, totalqs = 10;
 
 (async () => {
 
@@ -21,42 +21,40 @@ var NumberOfCorrectAnswers =0, qcountsofar =0, totalq = 10;
 
     // 3. make a submit button
     var submitbtn = await addbutton()
-    $(submitbtn).text('next').css({'font-size': '30px'})
+    $(submitbtn).text('next').css({ 'font-size': '30px' })
 
 
-
+    function askAq
     // 4. making a question and prepare the answer  
-    var theanswer  = await qcheck();
+    var theanswer = await qcheck();
     var roundedanswerNum = Math.round(theanswer)
     console.log('the answer is ', roundedanswerNum)
-  
 
     // 5. on click of the submit button, match user's answer with the correct answer, make statistics on the # of acumulated correct answers
     $(submitbtn).click(verifytheanswerandmoveon)
 
-    function verifytheanswerandmoveon (){
+
+
+
+    function verifytheanswerandmoveon() {
         // get the user's answer
         var theuseranswerStr = divs[4].innerText
         var theuseranswerNum = parseFloat(theuseranswerStr)
         var roundedtheuseranswerNum = Math.round(theuseranswerNum)
-        console.log('the user answer is ', roundedtheuseranswerNum, typeof(roundedtheuseranswerNum))
-        
-        if (roundedanswerNum === roundedtheuseranswerNum) {            
-            NumberOfCorrectAnswers ++;
+        console.log('the user answer is ', roundedtheuseranswerNum, typeof (roundedtheuseranswerNum))
+
+        if (roundedanswerNum === roundedtheuseranswerNum) {
+            NumberOfCorrectAnswers++;
             console.log('right')
-            console.log ('number of correct answers', NumberOfCorrectAnswers)
+            console.log('number of correct answers', NumberOfCorrectAnswers)
         } else {
             console.log('wrong')
         }
 
         // check the total questions being asked
-        qcountsofar ++;
+        qcountsofar++;
 
-        if (qcountsofar < totalq) {
-            // repeat...... 
-        }
-
-    } 
+    }
 
 
 
