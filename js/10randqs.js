@@ -1,10 +1,11 @@
 const body = document.body;
-var divs=[], tmpdiv = undefined;
+var divs = [], tmpdiv = undefined;
+var operators = ['+', '-', '*', '/'];
 
-(async ()=>{
+(async () => {
 
     // console.log(tmpdiv)
-    // // make five divs
+    // 1. make five divs
     for (var i = 0; i < 5; i++) {
         var tmpdiv = await adddiv()
         tmpdiv.setAttribute('class', 'equation')
@@ -12,13 +13,21 @@ var divs=[], tmpdiv = undefined;
         divs.push(tmpdiv)
     }
 
+    // 2. special settings for div[3, 4]
     divs[3].innerText = '='
     // divs[4].contentEditable= true
-    $(divs[4]).attr({'contentEditable':true}) // jquery syntax
+    $(divs[4]).attr({ 'contentEditable': true }) // jquery syntax
 
-    var firstn = 1, secondn = 2;
-    var operator = '+';
-    divs[0].inn
+    // 3. an example of making a question and prepare the answer
+    var firstn = await getRandomInt(0, 9), secondn = await getRandomInt(0, 9);
+    var operatorindex =await getRandomInt(0,3)
+    var operator = operators[operatorindex];
+
+    var theanswer  = qcheck(firstn, operator, secondn);
+    console.log('the answer is ', theanswer)
+
+
+
 
 
 

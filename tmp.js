@@ -95,11 +95,7 @@
         } // DisplayQ ()
 
         // a function to get a random integer within a defined range (min, max)
-        function getRandomInt(min, max) {
-            var min = Math.ceil(min);
-            var max = Math.floor(max);
-            return Math.floor(Math.random() * (max - min + 1)) + min;
-        }
+        
 
         function addbutton() {
             let button = document.createElement('button')
