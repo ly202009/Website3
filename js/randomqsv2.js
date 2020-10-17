@@ -3,7 +3,7 @@ var divs = [], tmpdiv = undefined;
 var operators = ['+', '-', '*', '/'];
 var NumberOfCorrectAnswers = 0, qcountsofar = 1, totalqs = 20;
 var roundedanswerNum = undefined, reportdiv = undefined;
-var nq = 3;
+var nq = 20;
 
 (async () => {
 
